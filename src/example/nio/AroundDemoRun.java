@@ -16,6 +16,9 @@ public class AroundDemoRun {
         System.out.println("\nMain Program:");
         System.out.println("Calling getFortune()");
         System.out.println("My fortune is: " + trafficFortuneService.getFortune());
+
+        trafficFortuneService.addNumbers(10);
+
         System.out.println("Done!");
 
         context.close();
