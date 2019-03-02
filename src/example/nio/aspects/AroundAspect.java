@@ -3,16 +3,12 @@ package example.nio.aspects;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.springframework.stereotype.Component;
-
-import java.util.Arrays;
-import java.util.List;
 
 @Aspect
 //@Component
 public class AroundAspect {
 
-    @Around("execution(* example.nio.service.TrafficFortuneService.getFortune(..))")
+    @Around("execution(* example.nio.service.TrafficFortuneService.getFortune())")
     public Object aroundGetFortune(ProceedingJoinPoint proceedingJoinPoint) throws Throwable{
 
         // print out the method we are advising on
@@ -36,10 +32,29 @@ public class AroundAspect {
         return result;
     }
 
+    @Around("execution(* example.nio.service.TrafficFortuneService.getFortune(boolean))")
+    public Object aroundGetFortuneBool(ProceedingJoinPoint proceedingJoinPoint){
+
+        // print out the method we are advising on
+        String method = proceedingJoinPoint.getSignature().toString();
+        System.out.println("==> Executing around advice on  throwing method: " + method);
+
+        Object result = null;
+
+        try {
+            result = proceedingJoinPoint.proceed();
+        }catch (Throwable e){
+            System.out.println("==> " + e.getMessage());
+            result = "Major accident but we handled it and everything is fine!";
+        }
+
+        return result;
+    }
+
     @Around("execution(* example.nio.service.TrafficFortuneService.addNumbers(..))")
     public void aroundAddNumbers(ProceedingJoinPoint joinPoint) throws Throwable{
 
-        List<Object> args = Arrays.asList(joinPoint.getArgs());
+        Object[] args = joinPoint.getArgs();
 
         int returnArgument = 0;
 
@@ -50,8 +65,5 @@ public class AroundAspect {
         }
 
         joinPoint.proceed(new Object[]{returnArgument});
-
     }
-
-
 }

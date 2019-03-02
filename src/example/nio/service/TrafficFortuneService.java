@@ -21,4 +21,13 @@ public class TrafficFortuneService {
         System.out.println("Number to be added: " + number);
         System.out.println("Adding 10 to the number:  10 + " + number + " = " + (number + 10));
     }
+
+    public String getFortune(boolean tripWire) {
+        if(tripWire){
+            throw new RuntimeException("Accident! Highway closed!");
+        }
+
+        return getFortune();
+    }
+
 }
