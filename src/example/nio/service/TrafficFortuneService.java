@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class TrafficFortuneService {
 
-    public String getFrotune(){
+    public String getFortune(){
         try {
             TimeUnit.SECONDS.sleep(5);
         } catch (InterruptedException e) {

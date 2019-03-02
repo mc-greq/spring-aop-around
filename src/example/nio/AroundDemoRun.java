@@ -13,7 +13,10 @@ public class AroundDemoRun {
         TrafficFortuneService trafficFortuneService =
                 context.getBean("trafficFortuneService", TrafficFortuneService.class);
 
-        System.out.println(trafficFortuneService.getFrotune());
+        System.out.println("\nMain Program:");
+        System.out.println("Calling getFortune()");
+        System.out.println("My fortune is: " + trafficFortuneService.getFortune());
+        System.out.println("Done!");
 
         context.close();
     }

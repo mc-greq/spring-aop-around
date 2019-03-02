@@ -6,6 +6,7 @@
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/example/nio/Config.java</file>
           <file>file://$MODULE_DIR$/src/example/nio/MyLoggerConfig.java</file>
+          <file>file://$MODULE_DIR$/src/example/nio/ConfigAll.java</file>
         </fileset>
       </configuration>
     </facet>
