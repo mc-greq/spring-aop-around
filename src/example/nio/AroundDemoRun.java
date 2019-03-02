@@ -8,7 +8,7 @@ public class AroundDemoRun {
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext(Config.class, MyLoggerConfig.class);
+                new AnnotationConfigApplicationContext(ConfigAll.class);
 
         TrafficFortuneService trafficFortuneService =
                 context.getBean("trafficFortuneService", TrafficFortuneService.class);
